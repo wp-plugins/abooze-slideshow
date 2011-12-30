@@ -1,6 +1,6 @@
-=== Plugin Name ===
+﻿=== Plugin Name ===
 Contributors: Aboobacker Omar
-Tags: slideshow, images, jquery cycle
+Tags: slideshow, images, jquery cycle, abooze slideshow
 Requires at least: 3.0
 Tested up to: 3.3
 Stable tag: 1.0
