@@ -27,6 +27,7 @@ Images can also be deleted via the plugins Administration page.
 1. Upload the entire `abooze-home-slider` folder to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
 1. Configure the plugin, and upload/edit/delete images via the "Aboozé Slideshow" menu within the "Media" tab
+1. Please upload images with dimension 1000x528 pixels
 1. Place `<div id="slideShow">
     <?php if (function_exists('wp_cycle')){ wp_cycle(); }?>
 </div>` in your theme where you want the slideshow to appear
