@@ -38,7 +38,7 @@ Images can also be deleted via the plugins Administration page.
 
 The plugin uses built in WordPress functions to handle image uploading. Therefore, you need to have [correct permissions](http://codex.wordpress.org/Changing_File_Permissions "Changing File Permissions") set for your uploads directory.
 
-Also please note that the images should be having the dimensions: 1000x528 pixels to upload. I'm working to allow users for choosing different dimensions.
+Also please note that the images should be having the dimensions: <b>1000x528 pixels</b> to upload. I'm working to allow users for choosing different dimensions.
 
 Also, a file that is not an image, or an image that does not meet the minimum height/width requirements, will not upload. Images larger than the dimensions set in the Settings of this plugin will be scaled down to fit, but images smaller than the dimensions set in the Settings will NOT be scaled up. The upload will fail and you will be asked to try again with another image.
 
