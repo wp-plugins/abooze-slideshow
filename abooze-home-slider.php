@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Aboozé Slideshow
-Plugin URI: http://www.aboobacker.com/
+Plugin URI: http://wordpress.org/extend/plugins/abooze-slideshow/
 Description: Easily upload images with links to display a nice slideshow on your website. To manage, Go to <strong>Media-> Aboozé Slideshow</strong>. To display the slideshow, add the shortcode: <code><?php if (function_exists('ab_show')){ ab_show(); }?> </code> in your template.
 Version: 2.0
 Author: Aboobacker Omar
@@ -15,8 +15,8 @@ $wp_cycle_defaults = apply_filters('wp_cycle_defaults', array(
 	'effect' => 'fade', // fade, wipe, scrollUp, scrollDown, scrollLeft, scrollRight, cover, shuffle
 	'delay' => 3,
 	'duration' => 1,
-	'img_width' => 1000,
-	'img_height' => 528,
+	'img_width' => 900,
+	'img_height' => 500,
 	'div' => 'slideShowItems'
 ));
 
@@ -321,7 +321,7 @@ function abooze_slideshow_script(){
  ?>
 <script type="text/javascript">
 $(document).ready(function() {
-	$('#slideShowItems div').hide().css({position:'absolute',width:'1000px'});
+	$('#slideShowItems div').hide().css({position:'absolute',width:'900px'});
 
 var currentSlide = -1;
 var prevSlide = null;
@@ -403,13 +403,13 @@ $('ul#slideShowCount li.slide:last').addClass('ls_li');
 <style type="text/css">
 /* home slideshow css */
 div#slideShowItems{
-    height:528px;
+    height:500px;
     overflow:hidden;
     position:relative;
 }
 
 div#slideShowItems div{
-    width:1000px;
+    width:900px;
 }
 
 
@@ -421,7 +421,7 @@ div#slideShowItems img {
 ul#slideShowCount{
     margin:0px;
     padding:0px;
-    width:1000px;
+    width:900px;
     margin: 0 auto;
 }
 ul#slideShowCount li.slide{
@@ -463,8 +463,9 @@ ul#slideShowCount li.slide.selectedTab{
 }
 div#slideShow{
     background:#222;
-    width:1000px;
+    width:900px;
     margin: 0 auto;
+	margin-bottom:15px;
     color:#fff;
 }
 /*home slideshow css end*/
