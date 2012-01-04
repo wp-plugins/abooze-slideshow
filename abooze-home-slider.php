@@ -29,48 +29,65 @@ $wp_cycle_settings = wp_parse_args($wp_cycle_settings, $wp_cycle_defaults);
 
 
 //	this function registers our settings in the db
-add_action('admin_init', 'wp_cycle_register_settings');
-function wp_cycle_register_settings() {
-	register_setting('wp_cycle_images', 'wp_cycle_images', 'wp_cycle_images_validate');
-	register_setting('wp_cycle_settings', 'wp_cycle_settings', 'wp_cycle_settings_validate');
+add_action('admin_init', 'wp_cycle_register_settings1');
+function wp_cycle_register_settings1() {
+	register_setting('wp_cycle_images', 'wp_cycle_images', 'wp_cycle_images_validate1');
+	register_setting('wp_cycle_settings', 'wp_cycle_settings', 'wp_cycle_settings_validate1');
 }
 
 
 //	this function adds the settings page to the Appearance tab
-add_action('admin_menu', 'add_wp_cycle_menu');
-function add_wp_cycle_menu() {
-	add_submenu_page('upload.php', 'Aboozé Slideshow Settings', 'Aboozé Slideshow', 'upload_files', 'abooze-slideshow', 'wp_cycle_admin_page');
+add_action('admin_menu', 'add_wp_cycle_menu1');
+function add_wp_cycle_menu1() {
+	add_submenu_page('upload.php', 'Aboozé Slideshow Settings', 'Aboozé Slideshow', 'upload_files', 'abooze-slideshow', 'wp_cycle_admin_page1');
 }
 
 //	add "Settings" link to plugin page
 add_filter('plugin_action_links_' . plugin_basename(__FILE__) , 'wp_cycle_plugin_action_links');
-function wp_cycle_plugin_action_links($links) {
+function wp_cycle_plugin_action_links1($links) {
 	$wp_cycle_settings_link = sprintf( '<a href="%s">%s</a>', admin_url( 'upload.php?page=abooze-slideshow' ), __('Settings') );
 	array_unshift($links, $wp_cycle_settings_link);
 	return $links;
 }
 
-function wp_cycle_admin_page() {
+function wp_cycle_admin_page1() {
 	echo '<div class="wrap">';
 	
 		//	handle image upload, if necessary
 		if($_REQUEST['action'] == 'wp_handle_upload')
-			wp_cycle_handle_upload();
+			wp_cycle_handle_upload1();
 		
 		//	delete an image, if necessary
 		if(isset($_REQUEST['delete']))
-			wp_cycle_delete_upload($_REQUEST['delete']);
+			wp_cycle_delete_upload1($_REQUEST['delete']);
 		
 		//	the image management form
-		wp_cycle_images_admin();
+		wp_cycle_images_admin1();
 		
-		//	the settings management form
-		//wp_cycle_settings_admin();
+		
+		
+		
+		
+		
+		
+		
+		
+//	the settings management form
+	//   	wp_cycle_settings_admin1();
+		
+		
+		
+		
+		
+		
+		
+		
+		
 
 	echo '</div>';
 }
 
-function wp_cycle_handle_upload() {
+function wp_cycle_handle_upload1() {
 	global $wp_cycle_settings, $wp_cycle_images;
 	
 	//	upload the image
@@ -137,7 +154,7 @@ function wp_cycle_handle_upload() {
 
 //	this function deletes the image,
 //	and removes the image data from the db
-function wp_cycle_delete_upload($id) {
+function wp_cycle_delete_upload1($id) {
 	global $wp_cycle_images;
 	
 	//	if the ID passed to this function is invalid,
@@ -156,7 +173,7 @@ function wp_cycle_delete_upload($id) {
 	update_option('wp_cycle_images', $wp_cycle_images);
 }
 
-function wp_cycle_settings_update_check() {
+function wp_cycle_settings_update_check1() {
 	global $wp_cycle_settings;
 	if(isset($wp_cycle_settings['update'])) {
 		echo '<div class="updated fade" id="message"><p>Aboozé Slideshow Settings <strong>'.$wp_cycle_settings['update'].'</strong></p></div>';
@@ -166,7 +183,7 @@ function wp_cycle_settings_update_check() {
 }
 //	this function checks to see if we just added a new image
 //	if so, it displays the "updated" message.
-function wp_cycle_images_update_check() {
+function wp_cycle_images_update_check1() {
 	global $wp_cycle_images;
 	if($wp_cycle_images['update'] == 'Added' || $wp_cycle_images['update'] == 'Deleted' || $wp_cycle_images['update'] == 'Updated') {
 		echo '<div class="updated fade" id="message"><p>Image(s) '.$wp_cycle_images['update'].' Successfully</p></div>';
@@ -175,9 +192,9 @@ function wp_cycle_images_update_check() {
 	}
 }
 
-function wp_cycle_images_admin() { ?>
+function wp_cycle_images_admin1() { ?>
 	<?php global $wp_cycle_images; ?>
-	<?php wp_cycle_images_update_check(); ?>
+	<?php wp_cycle_images_update_check1(); ?>
 	<h2><?php _e('Home Slideshow Images', 'wp_cycle'); ?></h2>
 	
 	<table class="form-table">
@@ -239,7 +256,77 @@ function wp_cycle_images_admin() { ?>
 <?php
 }
 
-function wp_cycle_settings_validate($input) {
+
+
+
+
+
+
+//////////////* Option to be added for chosing different diamensions start*///////////////
+//////////////////////////////////////////////////////////////////////////////////////////
+
+/*
+
+
+
+
+//	display the settings administration code
+function wp_cycle_settings_admin1() { ?>
+
+	<?php wp_cycle_settings_update_check1(); ?>
+	<h2><?php _e('WP-Cycle Settings', 'wp-cycle'); ?></h2>
+	<form method="post" action="options.php">
+	<?php settings_fields('wp_cycle_settings'); ?>
+	<?php global $wp_cycle_settings; $options = $wp_cycle_settings; ?>
+	<table class="form-table">
+        
+		<tr><th scope="row">Image Dimensions</th>
+		<td>Please input the width of the image rotator:<br />
+			<input type="text" name="wp_cycle_settings[img_width]" value="<?php echo $options['img_width'] ?>" size="4" />
+			<label for="wp_cycle_settings[img_width]">px</label>
+			<br /><br />
+			Please input the height of the image rotator:<br />
+			<input type="text" name="wp_cycle_settings[img_height]" value="<?php echo $options['img_height'] ?>" size="4" />
+			<label for="wp_cycle_settings[img_height]">px</label>
+		</td></tr>
+		
+		<input type="hidden" name="wp_cycle_settings[update]" value="UPDATED" />
+	
+	</table>
+	<p class="submit">
+	<input type="submit" class="button-primary" value="<?php _e('Save Settings') ?>" />
+	</form>
+	
+	<!-- The Reset Option -->
+	<form method="post" action="options.php">
+	<?php settings_fields('wp_cycle_settings'); ?>
+	<?php global $wp_cycle_defaults; // use the defaults ?>
+	<?php foreach((array)$wp_cycle_defaults as $key => $value) : ?>
+	<input type="hidden" name="wp_cycle_settings[<?php echo $key; ?>]" value="<?php echo $value; ?>" />
+	<?php endforeach; ?>
+	<input type="hidden" name="wp_cycle_settings[update]" value="RESET" />
+	<input type="submit" class="button" value="<?php _e('Reset Settings') ?>" />
+	</form>
+	<!-- End Reset Option -->
+	</p>
+
+<?php
+}
+
+
+
+*/
+//////////////* Option to be added for chosing different diamensions start end*///////////////
+//////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+function wp_cycle_settings_validate1($input) {
 	$input['rotate'] = ($input['rotate'] == 1 ? 1 : 0);
 	$input['effect'] = wp_filter_nohtml_kses($input['effect']);
 	$input['img_width'] = intval($input['img_width']);
@@ -249,7 +336,7 @@ function wp_cycle_settings_validate($input) {
 	return $input;
 }
 //	this function sanitizes our image data for storage
-function wp_cycle_images_validate($input) {
+function wp_cycle_images_validate1($input) {
 	foreach((array)$input as $key => $value) {
 		if($key != 'update') {
 			$input[$key]['file_url'] = clean_url($value['file_url']);
@@ -288,8 +375,8 @@ function ab_show($args = array(), $content = null) {
 }
 
 //	create the shortcode [wp_cycle]
-add_shortcode('ab_show', 'wp_cycle_shortcode');
-function wp_cycle_shortcode($atts) {
+add_shortcode('ab_show', 'wp_cycle_shortcode1');
+function wp_cycle_shortcode1($atts) {
 	
 	// Temp solution, output buffer the echo function.
 	ob_start();
@@ -300,8 +387,8 @@ function wp_cycle_shortcode($atts) {
 	
 }
 
-add_action( 'wp_head', 'wp_cycle_style' );
-function wp_cycle_style() { 
+add_action( 'wp_head', 'wp_cycle_style1' );
+function wp_cycle_style1() { 
 	global $wp_cycle_settings;
 ?>
 	
@@ -403,7 +490,7 @@ $('ul#slideShowCount li.slide:last').addClass('ls_li');
 <style type="text/css">
 /* home slideshow css */
 div#slideShowItems{
-    height:500px;
+    height:450px;
     overflow:hidden;
     position:relative;
 }
