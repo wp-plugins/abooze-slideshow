@@ -6,17 +6,11 @@ Tested up to: 3.3
 Stable tag: 1.0
 
 This plugin creates an image slideshow in your theme, using the jQuery Cycle plugin. You can upload/delete images via the administration panel, and display the images in your theme by using the 
-<code>
-<div id="slideShow">
-    <?php if (function_exists('ab_show')){ ab_show(); }?>
-</div>  
-</code> template tag, which will generate all the necessary HTML for outputting the rotating images.
+<code><?php if (function_exists('ab_show')){ ab_show(); }?></code> template tag, which will generate all the necessary HTML for outputting the rotating images.
 
 == Description ==
 
-Easily upload images with links to display a nice slideshow on your website. To manage, Go to <strong>Media-> Aboozé Slideshow</strong>. To display the slideshow, add the shortcode: <code> <div id="slideShow">
-    <?php if (function_exists('ab_show')){ ab_show(); }?>
-</div> </code> in your template or simply adding the shortcode <code>[ab_show]</code> in the page from the admin panel.
+Easily upload images with links to display a nice slideshow on your website. To manage, Go to <strong>Media-> Aboozé Slideshow</strong>. To display the slideshow, add the shortcode: <code> <?php if (function_exists('ab_show')){ ab_show(); }?></code> in your template or simply adding the shortcode <code>[ab_show]</code> in the page from the admin panel.
 
 Each image can also be given a URL which, when the image is active in the slideshow, will be used as an anchor wrapper around the image, turning the image into a link to the URL you specified.  The slideshow is set to pause when the user hovers over the slideshow images, giving them ample time to click the link.
 
@@ -28,9 +22,7 @@ Images can also be deleted via the plugins Administration page.
 1. Activate the plugin through the 'Plugins' menu in WordPress
 1. Configure the plugin, and upload/edit/delete images via the "Aboozé Slideshow" menu within the "Media" tab
 1. Please upload images with dimension 1000x528 pixels
-1. Place `<div id="slideShow">
-    <?php if (function_exists('ab_show')){ ab_show(); }?>
-</div>` in your theme where you want the slideshow to appear
+1. Place `<?php if (function_exists('ab_show')){ ab_show(); }?>` in your theme where you want the slideshow to appear
 1. Alternatively, you can use the shortcode [ab_show] in a post or page to display the slideshow.
 
 == Frequently Asked Questions ==
