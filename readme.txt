@@ -20,7 +20,7 @@ Images can also be deleted via the plugins Administration page.
 1. Upload the entire `abooze-home-slider` folder to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
 1. Configure the plugin, and upload/edit/delete images via the "Aboozé Slideshow" menu within the "Media" tab
-1. Please upload images with dimension 900x450 pixels
+1. Upload images with dimension 900x450 pixels
 1. Place `<?php if (function_exists('ab_show')){ ab_show(); }?>` in your theme where you want the slideshow to appear
 1. Alternatively, you can use the shortcode [ab_show] in a post or page to display the slideshow.
 
@@ -35,6 +35,10 @@ Also please note that the images should be having the dimensions: <b>900x450 pix
 Also, a file that is not an image, or an image that does not meet the minimum height/width requirements, will not upload. Images larger than the dimensions set in the Settings of this plugin will be scaled down to fit, but images smaller than the dimensions set in the Settings will NOT be scaled up. The upload will fail and you will be asked to try again with another image.
 
 Finally, you need to verify that your upload directory is properly set. Some hosts screw this up, so you'll need to check. Go to "Settings" -> "Miscellaneous" and find the input box labeled "Store uploads in this folder". Unless you are absolutely sure this needs to be something else, this value should be exactly this (without the quotes) "wp-content/uploads". If it says "/wp-content/uploads" then the plugin will not function correctly. No matter what, the value of this field should never start with a slash "/". It expects a path relative to the root of the WordPress installation.
+
+= Images are uploaded, but the slideshow is not working on the site? =
+
+There might be some jQuery conflict in your site. Please try moving the <code><?php wp_head(); ?></code> to the right before of the <code></head> </code> tag in your header.php of your current theme folder.
 
 = In what order are the images shown during the slideshow? =
 
