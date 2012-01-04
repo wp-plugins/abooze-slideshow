@@ -2,7 +2,7 @@
 /*
 Plugin Name: Aboozé Slideshow
 Plugin URI: http://www.aboobacker.com/
-Description: Easily upload images with links to display a nice slideshow on your website. To manage, Go to <strong>Media-> Aboozé Slideshow</strong>. To display the slideshow, add the shortcode: <code> &lt;?php wp_cycle();?&gt; </code> in your template.
+Description: Easily upload images with links to display a nice slideshow on your website. To manage, Go to <strong>Media-> Aboozé Slideshow</strong>. To display the slideshow, add the shortcode: <code> <div id="slideShow"> <?php if (function_exists('wp_cycle')){ wp_cycle(); }?> </div> </code> in your template.
 Version: 1.0
 Author: Aboobacker Omar
 Author URI: http://www.aboobacker.com/
