@@ -5,8 +5,7 @@ Requires at least: 3.0
 Tested up to: 3.3.1
 Stable tag: 2.0
 
-This plugin creates an image slideshow in your theme, using the jQuery Cycle plugin. You can upload/delete images via the administration panel, and display the images in your theme by using the 
-<code><?php if (function_exists('ab_show')){ ab_show(); }?></code> template tag, which will generate all the necessary HTML for outputting the rotating images.
+This plugin creates an image slideshow in your theme. You can upload/delete images via the admin panel, and display the images in your theme by using the <code><?php if (function_exists('ab_show')){ ab_show(); }?></code> template tag.
 
 == Description ==
 
