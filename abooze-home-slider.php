@@ -379,7 +379,7 @@ function gotoSlide(slideNum){
 		$('#slide'+slideNum).addClass('selectedTab');
 		$('#slide'+prevSlide).removeClass('selectedTab');
 
-		$(slides[slideNum]).stop().slideDown(FADE_SPEED,function(){
+		$(slides[slideNum]).stop().fadeIn(FADE_SPEED,function(){
 			$(this).css({opacity:1});
 			if(jQuery.browser.msie){
 				this.style.removeAttribute('filter');
