@@ -2,7 +2,7 @@
 /*
 Plugin Name: Aboozé Slideshow
 Plugin URI: http://www.aboobacker.com/
-Description: Easily upload images with links to display a nice slideshow on your website. To manage, Go to <strong>Media-> Aboozé Slideshow</strong>. To display the slideshow, add the shortcode: <code> <div id="slideShow"> <?php if (function_exists('wp_cycle')){ wp_cycle(); }?>; </div></code> in your template.
+Description: Easily upload images with links to display a nice slideshow on your website. To manage, Go to <strong>Media-> Aboozé Slideshow</strong>. To display the slideshow, add the shortcode: <code> &lt;?php wp_cycle();?&gt; </code> in your template.
 Version: 1.0
 Author: Aboobacker Omar
 Author URI: http://www.aboobacker.com/
@@ -65,7 +65,7 @@ function wp_cycle_admin_page() {
 		wp_cycle_images_admin();
 		
 		//	the settings management form
-		// wp_cycle_settings_admin();
+		//wp_cycle_settings_admin();
 
 	echo '</div>';
 }
@@ -183,7 +183,7 @@ function wp_cycle_images_admin() { ?>
 	<table class="form-table">
 		<tr valign="top"><th scope="row">Upload New Image</th>
 			<td>
-			<form enctype="multipart/form-data" method="post" action="file:///C|/Users/Abooze/Desktop/abooze-slideshow/?page=abooze-slideshow">
+			<form enctype="multipart/form-data" method="post" action="?page=abooze-slideshow">
 				<input type="hidden" name="post_id" id="post_id" value="0" />
 				<input type="hidden" name="action" id="action" value="wp_handle_upload" />
 				
@@ -215,7 +215,7 @@ function wp_cycle_images_admin() { ?>
 		
 		<tbody>
 		
-		<form method="post" action="file:///C|/Users/Abooze/Desktop/abooze-slideshow/options.php">
+		<form method="post" action="options.php">
 		<?php settings_fields('wp_cycle_images'); ?>
 		<?php foreach((array)$wp_cycle_images as $image => $data) : ?>
 			<tr>
@@ -224,9 +224,9 @@ function wp_cycle_images_admin() { ?>
 				<input type="hidden" name="wp_cycle_images[<?php echo $image; ?>][file_url]" value="<?php echo $data['file_url']; ?>" />
 				<input type="hidden" name="wp_cycle_images[<?php echo $image; ?>][thumbnail]" value="<?php echo $data['thumbnail']; ?>" />
 				<input type="hidden" name="wp_cycle_images[<?php echo $image; ?>][thumbnail_url]" value="<?php echo $data['thumbnail_url']; ?>" />
-				<th scope="row" class="column-slug"><img src="<?php echo $data['file:///C|/Users/Abooze/Desktop/abooze-slideshow/thumbnail_url']; ?>" /></th>
+				<th scope="row" class="column-slug"><img src="<?php echo $data['thumbnail_url']; ?>" /></th>
 				<td><input type="text" name="wp_cycle_images[<?php echo $image; ?>][image_links_to]" value="<?php echo $data['image_links_to']; ?>" size="35" /></td>
-				<td class="column-slug"><input type="submit" class="button-primary" value="Update" /> <a href="file:///C|/Users/Abooze/Desktop/abooze-slideshow/?page=abooze-slideshow&amp;delete=<?php echo $image; ?>" class="button">Delete</a></td>
+				<td class="column-slug"><input type="submit" class="button-primary" value="Update" /> <a href="?page=abooze-slideshow&amp;delete=<?php echo $image; ?>" class="button">Delete</a></td>
 			</tr>
 		<?php endforeach; ?>
 		<input type="hidden" name="wp_cycle_images[update]" value="Updated" />
