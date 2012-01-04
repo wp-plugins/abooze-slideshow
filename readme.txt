@@ -44,3 +44,6 @@ Chronologically, from the time of upload. For instance, the first image you uplo
 
 = 1.0 =
 * Initial Release
+
+= 2.0 =
+* Improved version
