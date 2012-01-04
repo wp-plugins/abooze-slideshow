@@ -36,6 +36,10 @@ Also, a file that is not an image, or an image that does not meet the minimum he
 
 Finally, you need to verify that your upload directory is properly set. Some hosts screw this up, so you'll need to check. Go to "Settings" -> "Miscellaneous" and find the input box labeled "Store uploads in this folder". Unless you are absolutely sure this needs to be something else, this value should be exactly this (without the quotes) "wp-content/uploads". If it says "/wp-content/uploads" then the plugin will not function correctly. No matter what, the value of this field should never start with a slash "/". It expects a path relative to the root of the WordPress installation.
 
+= Images are uploaded, but the slideshow is not working on the site? =
+
+There might be some jQuery conflict in your site. Please try moving the <code><?php wp_head(); ?></code> to the right before of the <code></head> </code> tag in your header.php of your current theme folder.
+
 = In what order are the images shown during the slideshow? =
 
 Chronologically, from the time of upload. For instance, the first image you upload will be the first image in the slideshow. The last image will be the last, etc.
