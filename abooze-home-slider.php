@@ -16,7 +16,7 @@ $wp_cycle_defaults = apply_filters('wp_cycle_defaults', array(
 	'delay' => 3,
 	'duration' => 1,
 	'img_width' => 900,
-	'img_height' => 500,
+	'img_height' => 450,
 	'div' => 'slideShowItems'
 ));
 
