@@ -43,7 +43,7 @@ function add_wp_cycle_menu1() {
 }
 
 //	add "Settings" link to plugin page
-add_filter('plugin_action_links_' . plugin_basename(__FILE__) , 'wp_cycle_plugin_action_links');
+add_filter('plugin_action_links_' . plugin_basename(__FILE__) , 'wp_cycle_plugin_action_links1');
 function wp_cycle_plugin_action_links1($links) {
 	$wp_cycle_settings_link = sprintf( '<a href="%s">%s</a>', admin_url( 'upload.php?page=abooze-slideshow' ), __('Settings') );
 	array_unshift($links, $wp_cycle_settings_link);
