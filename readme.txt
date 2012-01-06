@@ -26,7 +26,7 @@ Images can also be deleted via the plugins Administration page.
 
 == Screenshots ==
 
-1. Screenshot of admin page
+1. Screenshot of admin page. 
 2. Front end view of the slideshow
 
 == Frequently Asked Questions ==
