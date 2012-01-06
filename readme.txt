@@ -24,6 +24,10 @@ Images can also be deleted via the plugins Administration page.
 1. Place `<?php if (function_exists('ab_show')){ ab_show(); }?>` in your theme where you want the slideshow to appear
 1. Alternatively, you can use the shortcode [ab_show] in a post or page to display the slideshow.
 
+== Screenshots ==
+
+1. Screenshot of admin page
+
 == Frequently Asked Questions ==
 
 = My images won't upload. What should I do? =
