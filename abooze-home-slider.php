@@ -70,12 +70,16 @@ function wp_cycle_handle_upload1() {
 		echo '<div class="error" id="message"><p>Sorry, but the file you uploaded does not seem to be a valid image. Please try again.</p></div>';
 		return;
 	}
+
+/*	
 	//	if the image doesn't meet the minimum width/height requirements ...
 	if($width < $wp_cycle_settings['img_width'] || $height < $wp_cycle_settings['img_height']) {
 		unlink($file); // delete the image
 		echo '<div class="error" id="message"><p>Sorry, but this image does not meet the minimum height/width requirements. Please upload another image</p></div>';
 		return;
 	}
+*/
+
 	//	if the image is larger than the width/height requirements, then scale it down.
 	if($width > $wp_cycle_settings['img_width'] || $height > $wp_cycle_settings['img_height']) {
 		//	resize the image
