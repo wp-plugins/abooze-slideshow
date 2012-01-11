@@ -3,7 +3,7 @@ Contributors: Aboobacker Omar
 Tags: slideshow, images, jquery cycle, abooze slideshow
 Requires at least: 3.0
 Tested up to: 3.3.1
-Stable tag: 2.1
+Stable tag: 3.0
 
 This plugin creates an image slideshow in your theme. You can upload/delete images via the admin panel, and display the images in your theme by using the <code><?php if (function_exists('ab_show')){ ab_show(); }?></code> template tag.
 
@@ -23,6 +23,7 @@ Images can also be deleted via the plugins Administration page.
 1. Upload images with dimension 900x450 pixels
 1. Place `<?php if (function_exists('ab_show')){ ab_show(); }?>` in your theme where you want the slideshow to appear
 1. Alternatively, you can use the shortcode [ab_show] in a post or page to display the slideshow.
+1. Set custom width and height if you want.
 
 == Screenshots ==
 
@@ -57,4 +58,7 @@ Chronologically, from the time of upload. For instance, the first image you uplo
 * Improved version
 
 = 2.1 =
-* Fixed minor issues
+* Fixed minor bugs
+
+= 3.0 =
+* Added options to set custom width and height for the show.
