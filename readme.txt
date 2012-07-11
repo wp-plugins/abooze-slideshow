@@ -10,9 +10,9 @@ This plugin creates an image slideshow in your theme. You can upload/delete imag
 
 == Description ==
 
-Easily upload images with links to display a nice slideshow on your website. To manage, Go to <strong>Media-> Aboozé Slideshow</strong>. To display the slideshow, add the shortcode: 
+Easily upload images with links to display a nice slideshow on your website. To manage, Go to <strong>Media-> Aboozé Slideshow</strong>. To display the slideshow, add the shortcode in your template: 
 <code> <?php if (function_exists('ab_show')){ ab_show(); }?></code> 
-in your template or simply adding the shortcode 
+or simply adding the shortcode 
 <code>[ab_show]</code> 
 in the page from the admin panel.
 
