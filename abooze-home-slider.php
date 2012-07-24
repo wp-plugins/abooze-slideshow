@@ -3,7 +3,7 @@
 Plugin Name: Aboozé Slideshow
 Plugin URI: http://wordpress.org/extend/plugins/abooze-slideshow/
 Description: Easily upload images with links to display a nice slideshow on your website. To manage, Go to <strong>Media-> Aboozé Slideshow</strong>. To display the slideshow, add: &lt;?php if (function_exists('ab_show')){ ab_show(); } ?&gt; in your template.
-Version: 3.0
+Version: 3.1
 Author: Aboobacker Omar
 Author URI: http://www.aboobacker.com/
 This plugin inherits the GPL license from it's parent system, WordPress., customized from WP-Cycle. Thanks Nathan Rice.
@@ -305,11 +305,11 @@ add_action('wp_head', 'abooze_slideshow_script');
 function abooze_slideshow_script(){ 
 ?>
 <script type="text/javascript">
-$(document).ready(function() {
-	$('#slideShowItems div').hide().css({position:'absolute',width:'<?php echo $wp_cycle_settings['img_width']; ?>px'});
+jQuery(document).ready(function() {
+	jQuery('#slideShowItems div').hide().css({position:'absolute',width:'<?php echo $wp_cycle_settings['img_width']; ?>px'});
 var currentSlide = -1;
 var prevSlide = null;
-var slides = $('#slideShowItems div');
+var slides = jQuery('#slideShowItems div');
 var interval = null;
 var FADE_SPEED = 500;
 var DELAY_SPEED = 15000;
@@ -318,15 +318,15 @@ for (var i = slides.length - 1;i >= 0 ; i--){
 	html += '<li id="slide'+ i+'" class="slide"><span>'+(i+1)+'</span></li>' ;
 }
 html += '</ul>';
-$('#slideShow').after(html);
+jQuery('#slideShow').after(html);
 for (var i = slides.length - 1;i >= 0 ; i--){
-	$('#slide'+i).bind("click",{index:i},function(event){
+	jQuery('#slide'+i).bind("click",{index:i},function(event){
 		currentSlide = event.data.index;
 		gotoSlide(event.data.index);
 	});
 };
 if (slides.length <= 1){
-	$('.slide').hide();
+	jQuery('.slide').hide();
 }
 nextSlide();
 function nextSlide (){
@@ -340,14 +340,14 @@ function nextSlide (){
 function gotoSlide(slideNum){
 	if (slideNum != prevSlide){
 		if (prevSlide != null){
-			$(slides[prevSlide]).stop().hide();
-			$('#slide'+prevSlide).removeClass('selectedTab');
+			jQuery(slides[prevSlide]).stop().hide();
+			jQuery('#slide'+prevSlide).removeClass('selectedTab');
 		}
-		$('#slide'+currentSlide).addClass('selectedTab');
-		$('#slide'+slideNum).addClass('selectedTab');
-		$('#slide'+prevSlide).removeClass('selectedTab');
-		$(slides[slideNum]).stop().fadeIn(FADE_SPEED,function(){
-			$(this).css({opacity:1});
+		jQuery('#slide'+currentSlide).addClass('selectedTab');
+		jQuery('#slide'+slideNum).addClass('selectedTab');
+		jQuery('#slide'+prevSlide).removeClass('selectedTab');
+		jQuery(slides[slideNum]).stop().fadeIn(FADE_SPEED,function(){
+			jQuery(this).css({opacity:1});
 			if(jQuery.browser.msie){
 				this.style.removeAttribute('filter');
 			}
@@ -360,10 +360,11 @@ function gotoSlide(slideNum){
 		interval = setInterval(nextSlide, DELAY_SPEED);
 	}
 }
-$('ul#slideShowCount li.slide:first').addClass('fs_li');
-$('ul#slideShowCount li.slide:last').addClass('ls_li');
+jQuery('ul#slideShowCount li.slide:first').addClass('fs_li');
+jQuery('ul#slideShowCount li.slide:last').addClass('ls_li');
 });
 </script>
+
 <style type="text/css">
 /* home slideshow css */
 div#slideShowItems{
