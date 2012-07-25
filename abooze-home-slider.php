@@ -267,7 +267,7 @@ function ab_show($args = array(), $content = null) {
 	// possible future use
 	$args = wp_parse_args($args, $wp_cycle_settings);
 	$newline = "\n"; // line break
-	echo '<div style="width:'.$wp_cycle_settings['img_width'].'px"><div id="slideShow"><div id="'.$wp_cycle_settings['div'].'">'.$newline;
+	echo '<div class="aboozeShow" style="width:'.$wp_cycle_settings['img_width'].'px"><div id="slideShow"><div id="'.$wp_cycle_settings['div'].'">'.$newline;
 	foreach((array)$wp_cycle_images as $image => $data) {
 		if($data['image_links_to'])
 		echo '<a href="'.$data['image_links_to'].'">';
