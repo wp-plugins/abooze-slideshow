@@ -3,7 +3,7 @@
 Plugin Name: Aboozé Slideshow
 Plugin URI: http://wordpress.org/extend/plugins/abooze-slideshow/
 Description: Easily upload images with links to display a nice slideshow on your website. To manage, Go to <strong>Media-> Aboozé Slideshow</strong>. To display the slideshow, add: &lt;?php if (function_exists('ab_show')){ ab_show(); } ?&gt; in your template.
-Version: 3.1
+Version: 3.2
 Author: Aboobacker Omar
 Author URI: http://www.aboobacker.com/
 This plugin inherits the GPL license from it's parent system, WordPress., customized from WP-Cycle. Thanks Nathan Rice.
@@ -267,7 +267,7 @@ function ab_show($args = array(), $content = null) {
 	// possible future use
 	$args = wp_parse_args($args, $wp_cycle_settings);
 	$newline = "\n"; // line break
-	echo '<div style="width:'.$wp_cycle_settings['img_width'].'px"><div id="slideShow"><div id="'.$wp_cycle_settings['div'].'">'.$newline;
+	echo '<div class="aboozeShow" style="width:'.$wp_cycle_settings['img_width'].'px"><div id="slideShow"><div id="'.$wp_cycle_settings['div'].'">'.$newline;
 	foreach((array)$wp_cycle_images as $image => $data) {
 		if($data['image_links_to'])
 		echo '<a href="'.$data['image_links_to'].'">';
