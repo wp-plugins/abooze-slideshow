@@ -1,6 +1,6 @@
 ﻿=== Plugin Name ===
 Contributors: Aboobacker P Omar
-Donate link: http://aboobacker.com/
+Donate link: http://wp.aboobacker.com/
 Tags: slideshow, images, jquery cycle, abooze slideshow
 Requires at least: 3.0
 Tested up to: 3.4.1
